@@ -6,3 +6,10 @@
   overflow: hidden;
 }
 
+  :focus {
+    outline: 5px solid red;
+}
+
+.ToggleSwitch_checkbox {
+   opacity: 0;
+}
