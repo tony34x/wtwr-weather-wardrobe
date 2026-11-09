@@ -21,6 +21,6 @@
   background-color: black;
   width: 28px;
   height: 28px;
-  /* opacity: 1; */
-  border-radius: 20px;
+  position: absolute;
+  border-radius: 50%;
 }
