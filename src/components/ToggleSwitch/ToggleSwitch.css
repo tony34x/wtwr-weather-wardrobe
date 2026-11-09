@@ -4,18 +4,13 @@
   border: 2px solid black;
   border-radius: 20px;
   overflow: hidden;
-}
-
-:focus {
-  outline: 5px solid red;
+  position: relative;
 }
 
 .ToggleSwitch_checkbox {
   opacity: 0;
 }
 
-.ToggleSwitch__text {
-}
 
 .ToggleSwitch__circle {
   background-color: black;
@@ -23,4 +18,9 @@
   height: 28px;
   position: absolute;
   border-radius: 50%;
+  left: 0;
+}
+
+.ToggleSwitch__text {
+  
 }
