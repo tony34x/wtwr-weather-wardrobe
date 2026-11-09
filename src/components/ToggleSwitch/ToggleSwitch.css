@@ -6,17 +6,21 @@
   overflow: hidden;
 }
 
-  :focus {
-    outline: 5px solid red;
+:focus {
+  outline: 5px solid red;
 }
 
 .ToggleSwitch_checkbox {
-   opacity: 0;
+  opacity: 0;
 }
 
 .ToggleSwitch__text {
-  
 }
 
-.ToggleSwitch_circle {
+.ToggleSwitch__circle {
+  background-color: black;
+  width: 28px;
+  height: 28px;
+  /* opacity: 1; */
+  border-radius: 20px;
 }
