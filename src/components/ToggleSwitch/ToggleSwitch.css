@@ -1,4 +1,4 @@
-.ToggleSwitch {
+.toggleSwitch {
   width: 56px;
   height: 28px;
   border: 2px solid black;
@@ -7,22 +7,35 @@
   position: relative;
 }
 
-.ToggleSwitch_checkbox {
+.toggleSwitch__checkbox {
   opacity: 0;
 }
 
-.ToggleSwitch__circle {
+.toggleSwitch__circle {
   background-color: black;
   width: 28px;
   height: 28px;
   position: absolute;
   border-radius: 50%;
   left: 0;
+  transition: all 0.2s;
 }
 
-.ToggleSwitch__text {
+.toggleSwitch__text {
   position: absolute;
   color: #ffffff;
   top: 5px;
+}
+
+.toggle-switch__text_F {
   left: 9px;
+}
+
+.toggle-switch__text_C {
+  right: 9px;
+  color: #00000080;
+}
+  
+.toggle-switch__checkbox:checked ~ .toggleSwitch__circle {
+  left: 28px;
 }
