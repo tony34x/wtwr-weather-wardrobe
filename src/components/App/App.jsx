@@ -21,6 +21,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const [activeModal, setActiveModal] = useState("preview");
   const [selectedCard, setSelectedCard] = useState(null);
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [newGarment, setNewGarment] = useState({
     name: "",
     link: "",
