@@ -3,7 +3,7 @@ import WeatherCard from "../weatherCard/weatherCard";
 import "./main.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-function Main({ weatherData, clothingItems, onCardClick }) {
+function Main({ weatherData, clothingItems, onCardClick, }) {
   return (
     <main>
       <WeatherCard weatherData={weatherData} />

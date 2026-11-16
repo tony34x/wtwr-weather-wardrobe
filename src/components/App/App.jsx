@@ -9,8 +9,9 @@ import ItemModal from "./ItemModal/ItemModal";
 import { defaultClothingItems } from "../../utils/connstants";
 import { coordinates, apiKey } from "../../utils/connstants";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
-function App() {
+const App = () => {
   const [weatherData, setWeatherData] = useState({
     city: "",
     type: "hot",
@@ -22,13 +23,20 @@ function App() {
   const [activeModal, setActiveModal] = useState("preview");
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [newGarment, setNewGarment] = useState({
-    name: "",
-    link: "",
-    temp: { F: 999, C: 999 },
-    weather: "hot",
-  });
+  const [newGarment, setNewGarment] = useState(
+    {
+      name: "",
+      link: "",
+      weather: "hot",
+    }
+  );
+  const handleToggleSwitchChange = () => {  
+      setCurrentTemperatureUnit("CurrentTemperatureUnit" === "F" ? "C" : "F");
+  
+    }
+  }
 
+  
   const isAddGarmentDisabled =
     !newGarment.name.trim() || !newGarment.link.trim();
 
@@ -132,16 +140,18 @@ function App() {
   }, [activeModal]);
 
   return (
-    <div className="page">
-      <div className="page_content">
-        <Header
-          handleAddButtonClick={handleAddButtonClick}
-          city={weatherData.city}
+    <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, HandleToggleSwitchChange  }}>
+      <div className="page">
+        <div className="page_content">
+          <Header
+            handleAddButtonClick={handleAddButtonClick}
+            city={weatherData.city}
         />
         <Main
           weatherData={weatherData}
           clothingItems={clothingItems}
           onCardClick={handleCardClick}
+          currentTemperatureUnit={currentTemperatureUnit}
         />
         <Footer />
       </div>
@@ -230,6 +240,7 @@ function App() {
         onClose={closeActiveModal}
       />
     </div>
+    </CurrentTemperatureUnitContext.Provider>
   );
 }
 
