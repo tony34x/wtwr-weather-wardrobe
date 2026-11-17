@@ -44,6 +44,14 @@
   right: 9px;
   color: #00000080;
 }
+
+.toggleSwitch__checkbox:checked ~ .toggle-switch__text_F {
+  color: #00000080;
+}
+
+.toggleSwitch__checkbox:checked ~ .toggle-switch__text_C {
+  color: #ffffff;
+}
   
 .toggleSwitch__checkbox:checked ~ .toggleSwitch__circle {
   transform: translateX(28px);
