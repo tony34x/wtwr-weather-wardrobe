@@ -3,13 +3,22 @@ import WeatherCard from "../weatherCard/weatherCard";
 import "./main.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-function Main({ weatherData, clothingItems, onCardClick, }) {
+function Main({ weatherData, clothingItems, onCardClick, currentTemperatureUnit }) {
+  const temperature =
+    currentTemperatureUnit === "C"
+      ? Math.round(((weatherData.temp.F - 32) * 5) / 9)
+      : weatherData.temp.F;
+
   return (
     <main>
-      <WeatherCard weatherData={weatherData} />
+      <WeatherCard
+        weatherData={weatherData}
+        currentTemperatureUnit={currentTemperatureUnit}
+        temperature={temperature}
+      />
       <section className="cards">
         <p className="card__text">
-          Today is {weatherData.temp.F}&deg; F / You may want to wear:
+          Today is {temperature}&deg; {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="card__list">
           {clothingItems

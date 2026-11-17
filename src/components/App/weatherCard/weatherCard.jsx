@@ -1,7 +1,7 @@
 import "./weatherCard.css";
 import { weatheroptions } from "../../../utils/connstants.js";
 
-function WeatherCard({ weatherData, temperature }) {
+function WeatherCard({ weatherData, temperature, currentTemperatureUnit = "F" }) {
   const currentWeather = weatherData || {
     temp: { F: 68 },
     condition: "clear",
@@ -20,7 +20,7 @@ function WeatherCard({ weatherData, temperature }) {
     <section className="weather-cards">
       <article className="weather-card">
         <p className="weather-card__temp">
-          {temperature ?? currentWeather.temp.F}&deg;F
+          {temperature ?? currentWeather.temp.F}&deg;{currentTemperatureUnit}
         </p>
         <img
           src={weatheroption.url}

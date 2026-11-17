@@ -23,18 +23,14 @@ const App = () => {
   const [activeModal, setActiveModal] = useState("preview");
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [newGarment, setNewGarment] = useState(
-    {
-      name: "",
-      link: "",
-      weather: "hot",
-    }
-  );
-  const handleToggleSwitchChange = () => {  
-      setCurrentTemperatureUnit("CurrentTemperatureUnit" === "F" ? "C" : "F");
-  
-    }
-  }
+  const [newGarment, setNewGarment] = useState({
+    name: "",
+    link: "",
+    weather: "hot",
+  });
+  const handleToggleSwitchChange = () => {
+    setCurrentTemperatureUnit((unit) => (unit === "F" ? "C" : "F"));
+  };
 
   
   const isAddGarmentDisabled =
@@ -140,21 +136,23 @@ const App = () => {
   }, [activeModal]);
 
   return (
-    <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, HandleToggleSwitchChange  }}>
+    <CurrentTemperatureUnitContext.Provider
+      value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+    >
       <div className="page">
         <div className="page_content">
           <Header
             handleAddButtonClick={handleAddButtonClick}
             city={weatherData.city}
-        />
-        <Main
-          weatherData={weatherData}
-          clothingItems={clothingItems}
-          onCardClick={handleCardClick}
-          currentTemperatureUnit={currentTemperatureUnit}
-        />
-        <Footer />
-      </div>
+          />
+          <Main
+            weatherData={weatherData}
+            clothingItems={clothingItems}
+            onCardClick={handleCardClick}
+            currentTemperatureUnit={currentTemperatureUnit}
+          />
+          <Footer />
+        </div>
       <ModalWithForm
         name="add-garment"
         title="New garment"
@@ -239,7 +237,7 @@ const App = () => {
         card={selectedCard}
         onClose={closeActiveModal}
       />
-    </div>
+      </div>
     </CurrentTemperatureUnitContext.Provider>
   );
 }
